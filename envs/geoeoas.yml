@@ -12,7 +12,7 @@ dependencies:
     - cartopy=*
     - xarray=*
     - psycopg2=*
-    - dash=*
+    - dash=*.*
     - geopandas=*
     - colorcet=*.*
     - datashader=*.*
@@ -24,3 +24,5 @@ dependencies:
     - geoviews=*.*
     - jupyterlab=*.*
     - parcels=*.*
+    - cfgrib=*.*
+
