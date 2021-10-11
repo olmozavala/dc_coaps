@@ -61,10 +61,10 @@ def add_Kh(field_set, lat, lon, kh):
     """
     kh_mer = Field('Kh_meridional', kh * np.ones((len(lat), len(lon)), dtype=np.float32),
                    lon=lon, lat=lat, allow_time_extrapolation=True,
-                   fieldtype='Kh_meridional', mesh='spherical', field_chunksize=(2048,2048))
+                   fieldtype='Kh_meridional', mesh='spherical')
     kh_zonal = Field('Kh_zonal', kh * np.ones((len(lat), len(lon)), dtype=np.float32),
                      lon=lon, lat=lat, allow_time_extrapolation=True,
-                     fieldtype='Kh_zonal', mesh='spherical', field_chunksize=(2048,2048))
+                     fieldtype='Kh_zonal', mesh='spherical')
 
     field_set.add_field(kh_mer, 'Kh_meridional')
     field_set.add_field(kh_zonal, 'Kh_zonal')

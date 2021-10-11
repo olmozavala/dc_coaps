@@ -3,8 +3,9 @@ from config.params import Opts
 from datetime import timedelta
 
 
-# main_folder = " /nexsan/people/ddmitry/DARPA"
-main_folder = "/home/olmozavala/Dropbox/MyProjects/EOAS/COAPS/DARPA_Challenge/ExampleData"
+# main_folder = "/nexsan/people/ddmitry/DARPA"
+# main_folder = "/home/olmozavala/Dropbox/MyProjects/EOAS/COAPS/DARPA_Challenge/ExampleData"
+main_folder = "/data/DARPA/LOCALDATA"
 
 def get_config():
     config= {
@@ -20,7 +21,7 @@ def get_config():
         Opts.output_freq: timedelta(hours=24),  # 24
         # GlobalModel.repeat_release: timedelta(hours=0),  # 61
 
-        # Opts.bbox: [0, 70, -100, 0], # minlat, maxlat, minlon, maxlon
-        Opts.bbox: [-90, 90, 0, 360], # minlat, maxlat, minlon, maxlon
+        Opts.bbox: [0, 70, -100, 0], # minlat, maxlat, minlon, maxlon
+        # Opts.bbox: [-90, 90, 0, 360], # minlat, maxlat, minlon, maxlon
     }
     return config

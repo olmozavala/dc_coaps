@@ -3,6 +3,7 @@ from os.path import getmtime
 from os import walk, listdir
 from os.path import join
 import pandas as pd
+from config.params import Opts
 
 import numpy as np
 
@@ -11,8 +12,6 @@ def create_folder(output_folder):
     """ It simply verifies if a folder already exists, if not it creates it"""
     if not(os.path.exists(output_folder)):
         os.makedirs(output_folder)
-
-
 
 def get_latest_file(file_paths):
     """
@@ -39,4 +38,20 @@ def read_splits_file(file_name):
     test_ids = splits_df.iloc[:,2][splits_df.iloc[:,2] != -1]
 
     return train_ids.values, val_ids.values, test_ids.values
+
+
+def read_test_data_files(config):
+    currents_folder = join(config[Opts.currents_folder], "202105")
+    winds_folder = join(config[Opts.winds_folder], "TestPeriod")
+    waves_folder = config[Opts.waves_folder]
+
+    current_files = [join(currents_folder,x) for x in os.listdir(currents_folder)]
+    winds_files = [join(winds_folder,x) for x in os.listdir(winds_folder)]
+    waves_files = [join(waves_folder,x) for x in os.listdir(waves_folder) if x.find("test_period") != -1]
+
+    current_files.sort()
+    winds_files.sort()
+
+    return current_files, winds_files, waves_files
+
 
