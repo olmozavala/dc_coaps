@@ -18,7 +18,7 @@ def get_config():
         # Opts.output_folder: join(main_folder,"drifters_pred"),
         # Model
         Opts.dt: timedelta(hours=1), # 1 hour
-        Opts.output_freq: timedelta(hours=24),  # 24
+        Opts.output_freq: timedelta(hours=1),  # 24
         # GlobalModel.repeat_release: timedelta(hours=0),  # 61
 
         Opts.bbox: [0, 70, -100, 0], # minlat, maxlat, minlon, maxlon

@@ -1,4 +1,5 @@
 import os
+from datetime import timedelta, datetime
 from os.path import getmtime
 from os import walk, listdir
 from os.path import join
@@ -55,3 +56,21 @@ def read_test_data_files(config):
     return current_files, winds_files, waves_files
 
 
+def parse_drifters_dates(dates):
+    """
+    This function is in charge of reading the data from the drifters csv file
+    :param dates:
+    :return:
+    """
+    ret_dates = [datetime.strptime(F"{x[0:19]}", "%Y-%m-%d %H:%M:%S") for x in dates]
+    return ret_dates
+
+def parse_drifters_dates_by_hour(dates):
+    """
+    This function is in charge of reading the data from the drifters csv file
+    :param dates:
+    :return:
+    """
+    # print([x[0:13] for x in dates])
+    ret_dates = [datetime.strptime(F"{x[0:13]}", "%Y-%m-%d %H") for x in dates]
+    return ret_dates
